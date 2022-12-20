@@ -10,12 +10,14 @@ router.post('/', function(req, res, next) {
     // フロントからのパラメータ取得
     const userId = req.body.userId;
     const password = req.body.password;
-
+    console.log("userid" + userId);
+    console.log("paass" + password);
     // コネクションの用意
     const connection = mysql.createConnection(config.mysql_setting);
 
     connection.query(config.loginSQL, [userId, password],
         function(error, results, fields) {
+
             console.log(results);
             if (results.length >= 1) {
                 res.send('OK');
@@ -24,6 +26,7 @@ router.post('/', function(req, res, next) {
             }
         }
     );
+    console.log(connection.query);
 });
 
 module.exports = router;

@@ -1,4 +1,4 @@
-xports.mysql_setting = {
+exports.mysql_setting = {
     host: 'localhost',
     user: 'root',
     password: '',
